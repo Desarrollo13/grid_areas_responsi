@@ -1,0 +1,119 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: #E0ECF4;
+    color: #000;
+    font-family: "Roboto",sans-serif;
+}
+.contenedor{
+    width: 90%;
+    max-width: 1000px;
+    margin: 20px auto;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(4,auto); 
+    /* aplicacion de areas para el responsi */
+    grid-template-areas: "header header header"
+                         "contenido contenido sidebar"
+                         "wid_get_1 wid_get_2 sidebar"
+                         "footer footer footer";
+}
+.contenedor > div,
+.contenedor .header,
+.contenedor .contenido,
+.contenedor .sidebar,
+.contenedor .footer{
+    background: #fff;
+    padding: 20px;
+    border-radius: 4px;
+}
+.contenedor .header{
+    background: #12203E;
+    color: #fff;
+    /* aplico area inicio */
+   grid-area: header;
+    /* fin area */
+    /* grid-column-start: 1;
+    grid-column-end: -1; */
+}
+.contenedor .contenido{
+    /* aplico area inicio */
+    grid-area: contenido;
+    /* fin area */
+     /* grid-column: span 2; */ 
+}
+.contenedor .sidebar{
+    grid-column: 3 / 4;
+    background: #fAA43D;
+    text-align: center;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* aplico areas inicio */
+    grid-area: sidebar;
+    /* aplico areas fin */
+    /* grid-row: 2 / 4; */
+    /* grid-row: span 2; */
+}
+.contenedor .wid_get_1,
+.contenedor .wid_get_2{
+
+    background: #55a8fd;
+    color: #fff;
+    height: 100px;
+    text-align: center;
+    /* centro en forma vertical flexbox */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.contenedor .wid_get_1{
+    /* aplico areas inicio */
+    grid-area: wid_get_1;
+    /* aplico fin areas */
+}
+.contenedor .wid_get_2{
+    grid-area:wid_get_2;
+}
+.contenedor .footer{
+    background:#12203E ;
+    color: #fff;
+    /* aplico areas inicio*/
+    grid-area: footer;
+    /* fin area */
+    /* grid-column: span 3; */
+
+}
+/* aplicamos areas  media query inicio */
+@media screen and (max-width: 768px) {
+   .contenedor{
+    grid-template-areas: "header header header"
+    "contenido contenido contenido"
+    "sidebar sidebar sidebar"
+    "wid_get_1 wid_get_1 wid_get_2 "
+    "footer footer footer";
+   }
+    
+}
+/* fin de query  */
+
+/* @media screen and (max-width:768px) {
+
+  .contenedor .contenido{
+      grid-column: 1 / -1;
+
+  }
+  .contenedor .sidebar{
+      grid-column: 1 /-1;
+  }
+  .contenedor .wid_get_1{
+    grid-column: span 2;
+
+      
+  }
+
+    
